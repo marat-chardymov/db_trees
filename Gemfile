@@ -34,8 +34,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'mysql2'
 gem 'faker'
+
 gem 'acts_as_tree'
 gem 'awesome_nested_set'
+gem 'closure_tree'
 
 group :development, :test do
   gem 'pry-byebug'

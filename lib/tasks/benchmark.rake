@@ -1,7 +1,7 @@
 namespace :benchmark do
   desc "TODO"
   task adjacency_list: :environment do
-    ceo = AdjacencyListEmployee.first
+    ceo = AdjacencyListEmployee.root
     read_time = Benchmark.measure { ceo.descendants }
     p "Adjacency List(act_as_tree) read time: #{read_time.total}"
     # p "Visualization:"
@@ -11,9 +11,15 @@ namespace :benchmark do
   end
 
   task nested_set: :environment do
-    ceo = NestedSetEmployee.first
+    ceo = NestedSetEmployee.root
     read_time = Benchmark.measure { ceo.descendants }
     p "Nested Set(awesome_nested_set) read time: #{read_time.total}"
+  end
+
+  task closure_table: :environment do
+    ceo = ClosureTableEmployee.root
+    read_time = Benchmark.measure { ceo.descendants }
+    p "Closure Table(closure_tree) read time: #{read_time.total}"
   end
 
 end

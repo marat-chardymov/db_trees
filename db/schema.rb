@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180430214606) do
+ActiveRecord::Schema.define(version: 20180501115818) do
 
   create_table "adjacency_list_employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -20,6 +20,25 @@ ActiveRecord::Schema.define(version: 20180430214606) do
     t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "closure_table_employee_hierarchies", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "ancestor_id", null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations", null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "closure_table_employee_anc_desc_idx", unique: true
+    t.index ["descendant_id"], name: "closure_table_employee_desc_idx"
+  end
+
+  create_table "closure_table_employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.integer "level"
+    t.string "technology"
+    t.string "role"
+    t.integer "superior_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["superior_id"], name: "index_closure_table_employees_on_superior_id"
   end
 
   create_table "nested_set_employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

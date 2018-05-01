@@ -39,4 +39,9 @@ ActiveRecord::Base.connection.execute(
 # extra secret sauce for nested set model
 NestedSetEmployee.rebuild!
 
+# copy data to ClosureTable table
+ActiveRecord::Base.connection.execute(
+    'INSERT INTO closure_table_employees(id,name,level,superior_id,technology,role) SELECT id,name,level,superior_id,technology,role FROM adjacency_list_employees')
+# extra secret sauce for closure table model
+ClosureTableEmployee.rebuild!
 
