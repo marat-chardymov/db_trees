@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'mysql2'
 gem 'faker'
 gem 'acts_as_tree'
+gem 'awesome_nested_set'
 
 group :development, :test do
   gem 'pry-byebug'
