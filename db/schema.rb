@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180501115818) do
+ActiveRecord::Schema.define(version: 20180501211831) do
 
   create_table "adjacency_list_employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -39,6 +39,19 @@ ActiveRecord::Schema.define(version: 20180501115818) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["superior_id"], name: "index_closure_table_employees_on_superior_id"
+  end
+
+  create_table "enumeration_path_employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.integer "level"
+    t.string "technology"
+    t.string "role"
+    t.integer "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_enumeration_path_employees_on_ancestry"
+    t.index ["parent_id"], name: "index_enumeration_path_employees_on_parent_id"
   end
 
   create_table "nested_set_employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

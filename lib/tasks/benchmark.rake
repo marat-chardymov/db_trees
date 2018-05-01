@@ -22,4 +22,10 @@ namespace :benchmark do
     p "Closure Table(closure_tree) read time: #{read_time.total}"
   end
 
+  task enumeration_path: :environment do
+    ceo = EnumerationPathEmployee.first
+    read_time = Benchmark.measure { ceo.descendants }
+    p "Enumeration Path(closure_tree) read time: #{read_time.total}"
+  end
+
 end

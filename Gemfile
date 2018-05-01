@@ -38,6 +38,7 @@ gem 'faker'
 gem 'acts_as_tree'
 gem 'awesome_nested_set'
 gem 'closure_tree'
+gem 'ancestry'
 
 group :development, :test do
   gem 'pry-byebug'

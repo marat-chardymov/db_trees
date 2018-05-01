@@ -42,6 +42,8 @@ GEM
       activerecord (>= 3.0.0)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    ancestry (3.0.2)
+      activerecord (>= 3.2.0)
     arel (8.0.0)
     awesome_nested_set (3.1.4)
       activerecord (>= 4.0.0, < 5.3)
@@ -195,6 +197,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_tree
+  ancestry
   awesome_nested_set
   capybara (~> 2.13)
   closure_tree
